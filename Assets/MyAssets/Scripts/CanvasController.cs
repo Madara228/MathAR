@@ -5,27 +5,42 @@ using TMPro;
 public class CanvasController : MonoBehaviour
 {
     private VectorController _vectorController;
-    public TMP_InputField vector_1_x, vector_1_y, vector_1_z;
-    public TMP_InputField vector_2_x, vector_2_y, vector_2_z;
+    public TMP_InputField input1, input2;
     private TextMesh _text3D;
     private Vector3 tempStartPoint, tempEndPoint;
+
+    public Transform _vectorsTransform;
     public GameController _gameController;
-    public void GetTemp(GameObject temp)
+    public MathOperationController _MathOperationController;
+
+    private void Start()
     {
+        voidCreateVectors(new Vector3(0, 0, 0), new Vector3(7, 0, 0));
+        voidCreateVectors(new Vector3(0, 0, 0), new Vector3(0, 7, 0));
+        voidCreateVectors(new Vector3(0, 0, 0), new Vector3(0, 0, 7));
+    }
+
+    public void voidCreateVectors(Vector3 point1, Vector3 point2)
+    {
+        var temp = Instantiate(_gameController._line, Vector3.zero, Quaternion.identity);
+        temp.transform.parent = _vectorsTransform;
         _vectorController = temp.GetComponent<VectorController>();
+        tempStartPoint = point1;
+        tempEndPoint = point2;
+        CreateVectors();
     }
-    public void GetFirstArgument(Vector3 sPoint)
-    {
-        tempStartPoint = sPoint;
-    }
-    public void GetSecondArg(Vector3 ePoint)
-    {
-        tempEndPoint = ePoint;
-    }
+
     public void OnSumbit()
     {
-        _vectorController.startPoint = new Vector3(float.Parse(vector_1_x.text), float.Parse(vector_1_y.text), float.Parse(vector_1_z.text));
-        _vectorController.endPoint = new Vector3(float.Parse(vector_2_x.text), float.Parse(vector_2_y.text), float.Parse(vector_2_z.text));
+        string[] temp1 = input1.text.Split(';');
+        string[] temp2 = input2.text.Split(';');
+        _vectorController.LineRenderer.SetPosition(0, new Vector3(float.Parse(temp1[0]),
+                                                                  float.Parse(temp1[1]),
+                                                                  float.Parse(temp1[2])));
+        _vectorController.LineRenderer.SetPosition(1, new Vector3(float.Parse(temp2[0]),
+                                                                  float.Parse(temp2[1]),
+                                                                  float.Parse(temp2[2])));
+        _MathOperationController.CheckSize(_vectorController);
     }
 
     public void Attempt()
@@ -33,10 +48,11 @@ public class CanvasController : MonoBehaviour
         _vectorController.SendMessage("CheckColor");
         var _canvasController = GameObject.Find("Canvas");
         _canvasController.SetActive(false);
-        vector_1_x.text = ""; vector_1_y.text = ""; vector_1_z.text = "";
-        vector_2_x.text = ""; vector_2_y.text = ""; vector_2_z.text = "";
     }
-
+    public void EnableCanvas()
+    {
+        _gameController.GameCreateVectors();
+    }
     public void OnNot()
     {
         Destroy(_vectorController.gameObject);
@@ -51,12 +67,9 @@ public class CanvasController : MonoBehaviour
     void Creating(Vector3 starVector, Vector3 endVector)
     {
         _vectorController.LineRenderer = _vectorController.GetComponentInChildren<LineRenderer>();
-        Debug.Log(_vectorController.LineRenderer.gameObject.name);
-        Debug.Log(_vectorController.gameObject);
         _vectorController.LineRenderer.SetPosition(0, starVector);
         _vectorController.LineRenderer.SetPosition(1, endVector);
-        //_vectorController.startPoint = starVector;
-        //_vectorController.endPoint = endVector;
+        _vectorController.CheckColor();
     }
 
 

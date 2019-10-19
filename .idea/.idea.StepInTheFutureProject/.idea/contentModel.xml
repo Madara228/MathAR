@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\karag\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\karag\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_StepInTheFutureProject.-428947297.00" t="ExcludeRecursive" />
+    <e p="E:\Unity_Projects\StepInTheFutureProject" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="MyAssets" t="Include">
+          <e p="Materials" t="Include">
+            <e p="NewShader.shader" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="CameraFocus.cs" t="Include" />
+            <e p="CanvasController.cs" t="Include" />
+            <e p="FigureController.cs" t="Include" />
+            <e p="GameController.cs" t="Include" />
+            <e p="MathOperationController.cs" t="Include" />
+            <e p="NubmeInstance.cs" t="Include" />
+            <e p="VectorController.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scenes" t="Include">
+          <e p="TestScripts" t="Include">
+            <e p="SphereMovement.cs" t="Include" />
+          </e>
+        </e>
+        <e p="StreamingAssets" t="Include">
+          <e p="Vuforia" t="Include">
+            <e p="Bogatiy.xml" t="Include" />
+            <e p="VuforiaMars_Images.xml" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Vuforia" t="Include">
+          <e p="Databases" t="Include">
+            <e p="Emulator" t="Include">
+              <e p="VuforiaEmulator.xml" t="Include" />
+            </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="OpenSourceInitializer.cs" t="Include" />
+              <e p="VuforiaEditorScripts.asmdef" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="BoundingBoxRenderer.cs" t="Include" />
+            <e p="DefaultInitializationErrorHandler.cs" t="Include" />
+            <e p="DefaultModelRecoEventHandler.cs" t="Include" />
+            <e p="DefaultTrackableEventHandler.cs" t="Include" />
+            <e p="Internal" t="Include">
+              <e p="RuntimeOpenSourceInitializer.cs" t="Include" />
+            </e>
+            <e p="VuforiaScripts.asmdef" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="BrightTexture.shader" t="Include" />
+            <e p="CameraDiffuse.shader" t="Include" />
+            <e p="ClippingMask.shader" t="Include" />
+            <e p="ColoredLines.shader" t="Include" />
+            <e p="DepthContour.shader" t="Include" />
+            <e p="DepthMask.shader" t="Include" />
+            <e p="OutlineOpaque.shader" t="Include" />
+            <e p="Text3D.shader" t="Include" />
+            <e p="VertexLitWithZ.shader" t="Include" />
+            <e p="VideoBackground.shader" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="StepInTheFutureProject.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="VuforiaEditorScripts.csproj" t="IncludeRecursive" />
+      <e p="VuforiaScripts.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
