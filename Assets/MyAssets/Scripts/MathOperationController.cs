@@ -19,8 +19,8 @@ public class MathOperationController : MonoBehaviour
 
     public GameObject AnglePlane;
     public GameObject MathCanvas;
-    
-    
+
+
     private VectorController _vectorController;
     private VectorController[] vectorControllers;
 
@@ -36,8 +36,11 @@ public class MathOperationController : MonoBehaviour
 
     private int vectorPosition = 0;
 
-    private int count = 1;
-    
+    private int count = 0;
+
+    [SerializeField] private float sizeController = 1.5f;
+
+
     void Start()
     {
 
@@ -67,30 +70,30 @@ public class MathOperationController : MonoBehaviour
 
     private void Update()
     {
-//        if (Input.GetKeyDown(KeyCode.K))
-//        {
-//            Debug.Log(mGetAngle(firstArgument, secondArgument));
-//            Debug.Log(firstArgument + "firstArg" + secondArgument + "secondArg");
-//            firstArgument = Vector3.zero;
-//            secondArgument = Vector3.zero;
-//        }
-//
-//        if (Input.GetKeyDown(KeyCode.H))
-//        {
-//            MakeSmaller();
-//        }
+        //        if (Input.GetKeyDown(KeyCode.K))
+        //        {
+        //            Debug.Log(mGetAngle(firstArgument, secondArgument));
+        //            Debug.Log(firstArgument + "firstArg" + secondArgument + "secondArg");
+        //            firstArgument = Vector3.zero;
+        //            secondArgument = Vector3.zero;
+        //        }
+        //
+        //        if (Input.GetKeyDown(KeyCode.H))
+        //        {
+        //            MakeSmaller();
+        //        }
 
-//        if (Input.GetKeyDown(KeyCode.K))
-//        {
-//            if (MathCanvas.activeInHierarchy)
-//            {
-//                MathCanvas.SetActive(false);
-//            }
-//            else
-//            {
-//                MathCanvas.SetActive(true);
-//            }
-//        }
+        //        if (Input.GetKeyDown(KeyCode.K))
+        //        {
+        //            if (MathCanvas.activeInHierarchy)
+        //            {
+        //                MathCanvas.SetActive(false);
+        //            }
+        //            else
+        //            {
+        //                MathCanvas.SetActive(true);
+        //            }
+        //        }
     }
 
     public void GetArgument()
@@ -117,35 +120,27 @@ public class MathOperationController : MonoBehaviour
     public void MakeSmaller()
     {
         VectorController[] m_vectorControllers = GameObject.FindObjectsOfType<VectorController>();
+        count -= 1;
         foreach (var m_vectorController in m_vectorControllers)
         {
             var temp = m_vectorController.LineRenderer.GetPosition(1);
-            temp = temp / 1.5f;
+            temp = temp / sizeController;
             m_vectorController.LineRenderer.SetPosition(1, temp);
         }
-        nums.localScale /= 1.5f;
-        count -= 1;
-        if (count == 0)
-        {
-            count = 1;
-        }
+        nums.localScale /= sizeController;
     }
 
     public void MakeBigger()
     {
         VectorController[] m_vectorControllers = GameObject.FindObjectsOfType<VectorController>();
+        count += 1;
         foreach (var m_vectorController in m_vectorControllers)
         {
-            var temp = m_vectorController.LineRenderer.GetPosition(1);
-            temp = temp * 1.5f;
+            var temp = m_vectorController.LineRenderer.GetPosition(1);;
+            temp = temp * sizeController;
             m_vectorController.LineRenderer.SetPosition(1, temp);
         }
-        nums.localScale *= 1.5f;
-        count += 1;
-        if (count == 0)
-        {
-            count = -1;
-        }
+        nums.localScale *= sizeController;
     }
 
     public void MoveRight()
@@ -165,22 +160,26 @@ public class MathOperationController : MonoBehaviour
         }
     }
 
-    public void CheckSize(VectorController changingVectorController){
+    public void CheckSize(VectorController changingVectorController)
+    {
         if (count > 0)
         {
             var temp = changingVectorController.LineRenderer.GetPosition(1);
-            temp *= 1.5f * Mathf.Abs(count);
-            changingVectorController.LineRenderer.SetPosition(1,temp);
+            temp *= sizeController * Mathf.Abs(count);
+            changingVectorController.LineRenderer.SetPosition(1, temp);
         }
         else if (count < 0)
         {
             var temp = changingVectorController.LineRenderer.GetPosition(1);
-            temp /= 1.5f * Mathf.Abs(count);
-            changingVectorController.LineRenderer.SetPosition(1,temp);
+            temp /= sizeController * Mathf.Abs(count);
+            changingVectorController.LineRenderer.SetPosition(1, temp);
+        }
+        else if (count == 0) {
+            Debug.Log("not must to resize");
         }
         Debug.Log(count + " COUNT");
     }
-    
+
     void SelectVector(VectorController v)
     {
         Debug.Log(v.LineRenderer.GetPosition(1));
@@ -255,7 +254,7 @@ public class MathOperationController : MonoBehaviour
             Debug.Log("FALSE");
         }
 
-        else if(!AnglePlane.activeInHierarchy)
+        else if (!AnglePlane.activeInHierarchy)
         {
             Debug.Log("True");
             AnglePlane.SetActive(true);
