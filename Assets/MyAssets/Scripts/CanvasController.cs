@@ -71,6 +71,4 @@ public class CanvasController : MonoBehaviour
         _vectorController.LineRenderer.SetPosition(1, endVector);
         _vectorController.CheckColor();
     }
-
-
 }

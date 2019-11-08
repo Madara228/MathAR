@@ -165,14 +165,24 @@ public class MathOperationController : MonoBehaviour
         if (count > 0)
         {
             var temp = changingVectorController.LineRenderer.GetPosition(1);
-            temp *= sizeController * Mathf.Abs(count);
+            for(int i = 0; i<Mathf.Abs(count); i++)
+            {
+                temp *= sizeController;
+            }
             changingVectorController.LineRenderer.SetPosition(1, temp);
+            //temp *= sizeController * Mathf.Abs(count+4);
+            //changingVectorController.LineRenderer.SetPosition(1, temp);
         }
         else if (count < 0)
         {
             var temp = changingVectorController.LineRenderer.GetPosition(1);
-            temp /= sizeController * Mathf.Abs(count);
+            for (int i = 0; i < Mathf.Abs(count); i++)
+            {
+                temp /= sizeController;
+            }
             changingVectorController.LineRenderer.SetPosition(1, temp);
+            //temp /= sizeController * Mathf.Abs(count-4);
+            //changingVectorController.LineRenderer.SetPosition(1, temp);
         }
         else if (count == 0) {
             Debug.Log("not must to resize");

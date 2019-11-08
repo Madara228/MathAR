@@ -44,4 +44,9 @@ public class FigureDemoController : MonoBehaviour
             current_figure = figures[current_num];
         }
     }
+    public void GetCurrentFigureNdReverse()
+    {
+        var behaiv = current_figure.GetComponent<FigureDemonstrationBehaivor>();
+        behaiv.ChangeAnimationValue();
+    }
 }

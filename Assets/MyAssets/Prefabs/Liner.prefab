@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7312807938562899092}
-  m_LocalRotation: {x: 0.000515094, y: -0.0003417501, z: -0.000013915673, w: 0.9999999}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7312807938592532569}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.059000004, y: -0.039, z: -0.002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &7312807938562899094
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -79,7 +79,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.7939186
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -88,7 +88,7 @@ LineRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
+        value: 0.7939186
         inSlope: 0
         outSlope: 0
         tangentMode: 0
