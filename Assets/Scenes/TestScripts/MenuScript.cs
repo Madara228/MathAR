@@ -6,10 +6,10 @@ public class MenuScript : MonoBehaviour
 {
     public void FigureScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("FigureScene");
     }
     public void VectorScene()
     {
-        SceneManager.LoadScene("FigureScene");
+        SceneManager.LoadScene("SampleScene");
     }
 }

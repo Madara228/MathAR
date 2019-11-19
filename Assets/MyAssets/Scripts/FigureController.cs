@@ -6,14 +6,15 @@ using TMPro;
 public class FigureController : MonoBehaviour
 {
     public TMP_Dropdown _Dropdown;
-
+    public Transform im_transform;
     #region PrefabFigures
     public GameObject cube;
     public GameObject sphere;
     public GameObject Cylinder;
     #endregion
 
-    public TMP_InputField _InputField;
+    //public TMP_InputField _InputField;
+    public TextMeshProUGUI _InputField;
     private void Start()
     {
     }
@@ -23,15 +24,19 @@ public class FigureController : MonoBehaviour
 
         if (_Dropdown.options[_Dropdown.value].text == "Cube")
         {
-            Instantiate(cube, figurePosition(_InputField.text), Quaternion.identity);
+            var c = Instantiate(cube, figurePosition(_InputField.text), Quaternion.identity);
+            c.transform.parent = im_transform;
         }
         else if (_Dropdown.options[_Dropdown.value].text == "Sphere")
         {
-            Instantiate(sphere, figurePosition(_InputField.text), Quaternion.identity);
+            var c = Instantiate(sphere, figurePosition(_InputField.text), Quaternion.identity);
+            c.transform.parent = im_transform;
         }
         else if (_Dropdown.options[_Dropdown.value].text == "Cylinder")
         {
-            Instantiate(Cylinder, figurePosition(_InputField.text), Quaternion.identity);
+            var c =Instantiate(Cylinder, figurePosition(_InputField.text), Quaternion.identity);
+            c.transform.parent = im_transform;
+
         }
 
         Vector3 figurePosition(string input_text)

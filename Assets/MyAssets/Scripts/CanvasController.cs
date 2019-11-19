@@ -5,7 +5,8 @@ using TMPro;
 public class CanvasController : MonoBehaviour
 {
     private VectorController _vectorController;
-    public TMP_InputField input1, input2;
+    //public TMP_InputField input1, input2;
+    public TextMeshProUGUI input1, input2;
     private TextMesh _text3D;
     private Vector3 tempStartPoint, tempEndPoint;
 
