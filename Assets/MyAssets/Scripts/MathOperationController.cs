@@ -36,7 +36,7 @@ public class MathOperationController : MonoBehaviour
 
     private int vectorPosition = 0;
 
-    private int count = 0;
+    public int count = 0;
 
     [SerializeField] private float sizeController = 1.5f;
 
@@ -170,8 +170,6 @@ public class MathOperationController : MonoBehaviour
                 temp *= sizeController;
             }
             changingVectorController.LineRenderer.SetPosition(1, temp);
-            //temp *= sizeController * Mathf.Abs(count+4);
-            //changingVectorController.LineRenderer.SetPosition(1, temp);
         }
         else if (count < 0)
         {
@@ -181,8 +179,6 @@ public class MathOperationController : MonoBehaviour
                 temp /= sizeController;
             }
             changingVectorController.LineRenderer.SetPosition(1, temp);
-            //temp /= sizeController * Mathf.Abs(count-4);
-            //changingVectorController.LineRenderer.SetPosition(1, temp);
         }
         else if (count == 0) {
             Debug.Log("not must to resize");

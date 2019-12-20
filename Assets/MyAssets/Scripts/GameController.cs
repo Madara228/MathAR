@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public GameObject _line;
     public CanvasController _canvasController;
     public GameObject _parentImage;
+    public GameObject[] endisgameObjects;
     private Camera cam;
     private float _width, _height;
 
@@ -29,7 +30,18 @@ public class GameController : MonoBehaviour
     public void GameCreateVectors()
     {
         _canvasController.voidCreateVectors(Vector3.zero, Vector3.zero);
-        _canvasController.gameObject.SetActive(true);
+        edDis(true);
+    }
+    public void CreateForDimens()
+    {
+        _canvasController.voidCreateVectors(Vector3.zero, Vector3.zero);
+    }
+    public void edDis(bool t)
+    {
+        foreach (GameObject g in endisgameObjects)
+        {
+            g.SetActive(t);
+        }
     }
 
 }

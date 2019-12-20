@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class CanvasController : MonoBehaviour
 {
-    private VectorController _vectorController;
+    public VectorController _vectorController;
     //public TMP_InputField input1, input2;
     public TextMeshProUGUI input1, input2;
     private TextMesh _text3D;
@@ -13,6 +13,7 @@ public class CanvasController : MonoBehaviour
     public Transform _vectorsTransform;
     public GameController _gameController;
     public MathOperationController _MathOperationController;
+    public LineRenderer lastLine;
 
     private void Start()
     {
@@ -48,7 +49,8 @@ public class CanvasController : MonoBehaviour
     {
         _vectorController.SendMessage("CheckColor");
         var _canvasController = GameObject.Find("Canvas");
-        _canvasController.SetActive(false);
+        _gameController.edDis(false);
+        //_canvasController.SetActive(false);
     }
     public void EnableCanvas()
     {
@@ -63,7 +65,6 @@ public class CanvasController : MonoBehaviour
     void CreateVectors()
     {
         Creating(tempStartPoint, tempEndPoint);
-        Debug.Log(Time.time + "check");
     }
     void Creating(Vector3 starVector, Vector3 endVector)
     {
