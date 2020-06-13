@@ -16,8 +16,6 @@ public class VectorController : MonoBehaviour
     {
         //meshCollider = GetComponentInChildren<MeshCollider>();
         LineRenderer = GetComponentInChildren<LineRenderer>();
-        Debug.Log(LineRenderer + "_linerenderer");
-        Debug.Log(Time.time + "start");
     }
     
     void Update()
@@ -27,11 +25,9 @@ public class VectorController : MonoBehaviour
 
     public void CheckColor()
     {
-        Debug.Log("checkColor");
         var position = _lineRenderer.GetPosition(1);
         if(position.x> position.y && position.x > position.z)
         {
-            Debug.Log("color green");
             GradientColorKey[] colorKey;
             GradientAlphaKey[] alphaKey;
 
@@ -56,7 +52,6 @@ public class VectorController : MonoBehaviour
         }
         else if(position.y> position.x && position.y > position.z)
         {
-            Debug.Log("color green");
             GradientColorKey[] colorKey;
             GradientAlphaKey[] alphaKey;
 
@@ -81,7 +76,6 @@ public class VectorController : MonoBehaviour
         }
         else if(position.z> position.x && position.z > position.y)
         {
-            Debug.Log("color green");
             GradientColorKey[] colorKey;
             GradientAlphaKey[] alphaKey;
 

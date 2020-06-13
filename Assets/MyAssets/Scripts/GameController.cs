@@ -10,12 +10,12 @@ public class GameController : MonoBehaviour
     public GameObject[] endisgameObjects;
     private Camera cam;
     private float _width, _height;
-
+    public LineMover _lineMover;
     private void Start()
     {
-        cam = Camera.main;
-        _width = cam.pixelWidth / 2;
-        _height = cam.pixelHeight / 2;
+        //cam = Camera.main;
+        //_width = cam.pixelWidth / 2;
+        //_height = cam.pixelHeight / 2;
         
         _canvasController.gameObject.SetActive(false); 
     }
@@ -34,6 +34,11 @@ public class GameController : MonoBehaviour
     }
     public void CreateForDimens()
     {
+        
+        _lineMover = GameObject.FindObjectOfType<LineMover>();
+        //_lineMover.CreateLine();
+        Debug.Log(_lineMover + "_LINE MOVER");
+        Debug.Log("Dimension");
         _canvasController.voidCreateVectors(Vector3.zero, Vector3.zero);
     }
     public void edDis(bool t)

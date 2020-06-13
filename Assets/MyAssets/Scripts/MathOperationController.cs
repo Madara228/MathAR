@@ -37,6 +37,8 @@ public class MathOperationController : MonoBehaviour
     private int vectorPosition = 0;
 
     public int count = 0;
+    private Vector3 _stVect;
+    public CanvasController _canvasController;
 
     [SerializeField] private float sizeController = 1.5f;
 
@@ -181,9 +183,9 @@ public class MathOperationController : MonoBehaviour
             changingVectorController.LineRenderer.SetPosition(1, temp);
         }
         else if (count == 0) {
-            Debug.Log("not must to resize");
+            //Debug.Log("not must to resize");
         }
-        Debug.Log(count + " COUNT");
+        //Debug.Log(count + " COUNT");
     }
 
     void SelectVector(VectorController v)
@@ -253,16 +255,16 @@ public class MathOperationController : MonoBehaviour
 
     public void EnDisableAnglePlane()
     {
-        Debug.Log("endisable");
+        //Debug.Log("endisable");
         if (AnglePlane.activeInHierarchy)
         {
             AnglePlane.SetActive(false);
-            Debug.Log("FALSE");
+            //Debug.Log("FALSE");
         }
 
         else if (!AnglePlane.activeInHierarchy)
         {
-            Debug.Log("True");
+            //Debug.Log("True");
             AnglePlane.SetActive(true);
         }
     }
@@ -270,7 +272,7 @@ public class MathOperationController : MonoBehaviour
     public void PopulateList()
     {
         vectorControllers = _vectorsTransform.GetComponentsInChildren<VectorController>();
-        Debug.Log(vectorControllers.Length);
+        //Debug.Log(vectorControllers.Length);
         foreach (var i in vectorControllers)
         {
             vectorText.text += i.LineRenderer.GetPosition(1) + "\n";

@@ -18,6 +18,7 @@ public class SwitcherController : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         textMesh = GetComponentInParent<TextMeshProUGUI>();
         thObj.SetActive(selfAnimator.GetBool("Enable"));
+        Debug.Log(thObj);
         textMesh.text = thObj.gameObject.name;
     }
     public void ChangeState()

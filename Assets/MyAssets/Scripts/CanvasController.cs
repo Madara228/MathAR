@@ -14,14 +14,25 @@ public class CanvasController : MonoBehaviour
     public GameController _gameController;
     public MathOperationController _MathOperationController;
     public LineRenderer lastLine;
-
+    public Vector3 stVec;
     private void Start()
     {
-        voidCreateVectors(new Vector3(0, 0, 0), new Vector3(7, 0, 0));
-        voidCreateVectors(new Vector3(0, 0, 0), new Vector3(0, 7, 0));
-        voidCreateVectors(new Vector3(0, 0, 0), new Vector3(0, 0, 7));
+        //CollapseVectors(new Vector3(0, 0, 0));
+        //stVec = new Vector3(0, 0, 0);
+        //TODO : delete stVec
     }
 
+    public void CollapseVectors(Vector3 startVector)
+    { 
+        voidCreateVectors(startVector, startVector + new Vector3(6, 0, 0));
+        voidCreateVectors(startVector, startVector + new Vector3(0, 6, 0));
+        voidCreateVectors(startVector, startVector + new Vector3(0, 0, 6));
+        voidCreateVectors(startVector, startVector + new Vector3(-6, 0, 0));
+        voidCreateVectors(startVector, startVector + new Vector3(0, -6, 0));
+        voidCreateVectors(startVector, startVector + new Vector3(0, 0, -6));
+        //Debug.Log("collapsed");
+        stVec = startVector;
+    }
     public void voidCreateVectors(Vector3 point1, Vector3 point2)
     {
         var temp = Instantiate(_gameController._line, Vector3.zero, Quaternion.identity);
@@ -36,10 +47,10 @@ public class CanvasController : MonoBehaviour
     {
         string[] temp1 = input1.text.Split(';');
         string[] temp2 = input2.text.Split(';');
-        _vectorController.LineRenderer.SetPosition(0, new Vector3(float.Parse(temp1[0]),
+        _vectorController.LineRenderer.SetPosition(0,stVec + new Vector3(float.Parse(temp1[0]),
                                                                   float.Parse(temp1[1]),
                                                                   float.Parse(temp1[2])));
-        _vectorController.LineRenderer.SetPosition(1, new Vector3(float.Parse(temp2[0]),
+        _vectorController.LineRenderer.SetPosition(1, stVec + new Vector3(float.Parse(temp2[0]),
                                                                   float.Parse(temp2[1]),
                                                                   float.Parse(temp2[2])));
         _MathOperationController.CheckSize(_vectorController);
